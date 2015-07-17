@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-17 13:29:41 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.gaoxy.lifeinusa.entities.Tusers" table="Tusers" catalog="">
+        <id name="id" type="string">
+            <column name="ID" length="30" />
+            <generator class="assigned" />
+        </id>
+        <property name="username" type="string">
+            <column name="USERNAME" length="128" not-null="true" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="FIRST_NAME" length="32" />
+        </property>
+        <property name="middleInitial" type="java.lang.Character">
+            <column name="MIDDLE_INITIAL" length="1" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LAST_NAME" length="32" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="128" />
+        </property>
+        <property name="officePhone" type="string">
+            <column name="OFFICE_PHONE" length="16" />
+        </property>
+        <property name="mobilePhone" type="string">
+            <column name="MOBILE_PHONE" length="16" />
+        </property>
+        <property name="accountStatusCode" type="java.lang.Integer">
+            <column name="ACCOUNT_STATUS_CODE" />
+        </property>
+        <property name="userGroupId" type="java.lang.Integer">
+            <column name="USER_GROUP_ID" />
+        </property>
+        <property name="securityContextId" type="java.lang.Integer">
+            <column name="SECURITY_CONTEXT_ID" />
+        </property>
+        <property name="userDescr" type="string">
+            <column name="USER_DESCR" length="64" />
+        </property>
+        <property name="lastUpdateUser" type="java.lang.Integer">
+            <column name="LAST_UPDATE_USER" />
+        </property>
+        <property name="lastUpdateDate" type="timestamp">
+            <column name="LAST_UPDATE_DATE" length="19" />
+        </property>
+        <property name="lastWorkspaceId" type="java.lang.Integer">
+            <column name="LAST_WORKSPACE_ID" />
+        </property>
+        <property name="lastProjectId" type="java.lang.Integer">
+            <column name="LAST_PROJECT_ID" />
+        </property>
+        <property name="webmailUrl" type="string">
+            <column name="webmail_url" />
+        </property>
+        <property name="customerId" type="java.lang.Integer">
+            <column name="CUSTOMER_ID" />
+        </property>
+        <property name="membershipType" type="java.lang.Long">
+            <column name="MEMBERSHIP_TYPE" precision="10" scale="0" />
+        </property>
+        <property name="mydocumentsPath" type="string">
+            <column name="MYDOCUMENTS_PATH" length="2048" />
+        </property>
+        <property name="myphotosPath" type="string">
+            <column name="MYPHOTOS_PATH" length="2048" />
+        </property>
+        <property name="mylinksPath" type="string">
+            <column name="MYLINKS_PATH" length="2048" />
+        </property>
+        <property name="mymusicPath" type="string">
+            <column name="MYMUSIC_PATH" length="2048" />
+        </property>
+        <property name="myvideosPath" type="string">
+            <column name="MYVIDEOS_PATH" length="2048" />
+        </property>
+        <property name="emailServer" type="string">
+            <column name="EMAIL_SERVER" length="64" />
+        </property>
+        <property name="emailUsername" type="string">
+            <column name="EMAIL_USERNAME" length="32" />
+        </property>
+        <property name="emailPassword" type="string">
+            <column name="EMAIL_PASSWORD" length="32" />
+        </property>
+        <property name="emailAcctType" type="java.lang.Integer">
+            <column name="EMAIL_ACCT_TYPE" />
+        </property>
+        <property name="emailPortOutbound" type="java.lang.Integer">
+            <column name="EMAIL_PORT_OUTBOUND" />
+        </property>
+        <property name="emailPortInbound" type="java.lang.Integer">
+            <column name="EMAIL_PORT_INBOUND" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="128" />
+        </property>
+        <property name="homepage" type="string">
+            <column name="HOMEPAGE" length="128" />
+        </property>
+        <property name="activeStatus" type="string">
+            <column name="ACTIVE_STATUS" length="8" />
+        </property>
+        <property name="password2" type="string">
+            <column name="PASSWORD2" length="128" />
+        </property>
+        <property name="pictureFilepath" type="string">
+            <column name="PICTURE_FILEPATH" />
+        </property>
+        <property name="termsAndConditionsFlag" type="java.lang.Boolean">
+            <column name="TERMS_AND_CONDITIONS_FLAG" />
+        </property>
+        <property name="userCompanyName" type="string">
+            <column name="USER_COMPANY_NAME" length="64" />
+        </property>
+        <property name="userAddress" type="string">
+            <column name="USER_ADDRESS" length="32" />
+        </property>
+        <property name="userSuite" type="string">
+            <column name="USER_SUITE" length="8" />
+        </property>
+        <property name="userCity" type="string">
+            <column name="USER_CITY" length="32" />
+        </property>
+        <property name="userState" type="string">
+            <column name="USER_STATE" length="32" />
+        </property>
+        <property name="userCountry" type="string">
+            <column name="USER_COUNTRY" length="32" />
+        </property>
+        <property name="userPostalCode" type="string">
+            <column name="USER_POSTAL_CODE" length="16" />
+        </property>
+        <property name="favorites" type="string">
+            <column name="FAVORITES" length="65535" />
+        </property>
+        <property name="emailAccounts" type="string">
+            <column name="EMAIL_ACCOUNTS" length="65535" />
+        </property>
+        <property name="socialMediaAccounts" type="string">
+            <column name="SOCIAL_MEDIA_ACCOUNTS" length="65535" />
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="CREATE_DATE" length="19" />
+        </property>
+        <property name="createUser" type="java.lang.Integer">
+            <column name="CREATE_USER" />
+        </property>
+        <property name="apiKey" type="string">
+            <column name="API_KEY" length="32" />
+        </property>
+        <property name="apiSecret" type="string">
+            <column name="API_SECRET" length="32" />
+        </property>
+        <property name="version" type="string">
+            <column name="VERSION" length="32" />
+        </property>
+        <property name="cloudName" type="string">
+            <column name="CLOUD_NAME" length="64" />
+        </property>
+    </class>
+</hibernate-mapping>
