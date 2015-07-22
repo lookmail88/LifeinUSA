@@ -40,7 +40,7 @@ import com.gaoxy.lifeinusa.entities.Tusers;
 * @date Jul 15, 2015
 */
 @Repository("userdao")
-public class UserDAOImpl implements UserDAO{
+public class UserDAOHibernateExampleImpl implements UserDAOHibernateExample{
 
 	/* (non-Javadoc)
 	 * @see com.gaoxy.lifeinusa.dao.UserDAO#attachDirty(com.gaoxy.lifeinusa.entities.Tusers)

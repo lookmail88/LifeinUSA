@@ -24,7 +24,7 @@ import com.gaoxy.lifeinusa.entities.Tusers;
 * @author steven.gaoxy
 * @date Jul 15, 2015
 */
-public interface UserDAO {
+public interface UserDAOHibernateExample {
 	public void attachDirty(Tusers instance);
 
 	public void attachClean(Tusers instance) ;
