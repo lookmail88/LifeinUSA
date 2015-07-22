@@ -24,7 +24,7 @@
 	<li>Get UserList from hibernate</li>
  	<c:forEach items="${userDataList}" var="usa">
 		<li>
-			<c:out value="${usa.id} "></c:out>	
+			<c:out value="${usa.username} "></c:out>	
 		</li>
 	 </c:forEach>
 </ul>

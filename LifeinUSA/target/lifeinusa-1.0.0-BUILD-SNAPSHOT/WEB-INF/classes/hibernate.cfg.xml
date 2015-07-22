@@ -2,42 +2,18 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
                                          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
- <session-factory name="sessionFacotry">
- 
-         <!-- Database connection settings -->
+ <session-factory name="sessionFactory">
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
   <property name="hibernate.connection.password">lifeinusaDBUser</property>
   <property name="hibernate.connection.url">jdbc:mysql://192.168.1.78:3306</property>
   <property name="hibernate.connection.username">lifeinusaDBUser</property>
   <property name="hibernate.default_schema">lifeinusaDB</property>
-  
-         <!-- JDBC connection pool (use the built-in) -->
-        <property name="connection.pool_size">1</property>
-  		
-  		<!-- SQL dialect -->
-  		<property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
- 
-   <!-- Enable Hibernate's automatic session context management -->
-        <property name="current_session_context_class">thread</property>
-
-        <!-- Disable the second-level cache  -->
-        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
-
-        <!-- Echo all executed SQL to stdout -->
-        <property name="show_sql">true</property>
-		<property name="format_sql">true</property>
-	    <property name="use_sql_comments">true</property>
-	    
-	     <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">update</property>
-	    
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
   <mapping class="com.gaoxy.lifeinusa.entities.Tusers" resource="com/gaoxy/lifeinusa/entities/Tusers.hbm.xml"/>
- 
- 
-
-
-
- 
- 
+  
+  
+  
+  
+  
  </session-factory>
 </hibernate-configuration>

@@ -16,6 +16,7 @@ import javax.persistence.TemporalType;
 @Table(name = "Tusers", catalog = "lifeinusaDB")
 public class Tusers implements java.io.Serializable {
 
+
 	private String id;
 	private String username;
 	private String firstName;
