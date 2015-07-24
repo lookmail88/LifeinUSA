@@ -59,12 +59,13 @@
        
     </beans:bean>
 	
-<!-- 	<beans:bean id="transactionManager"  class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	<beans:bean id="transactionManager"  class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <beans:property name="sessionFactory" ref="sessionFactory" />
-    </beans:bean> -->
+    </beans:bean> 
  
     <beans:bean id="persistenceExceptionTranslationPostProcessor" class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
          
+	
 	
 	
 	

@@ -13,6 +13,12 @@ package com.gaoxy.lifeinusa.system;
 import java.lang.reflect.Field;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.gaoxy.lifeinusa.weixin.Weixin;
 
 /**
 * <p>Title: Printer</p>
@@ -22,7 +28,7 @@ import java.util.List;
 * @date Jul 17, 2015
 */
 public  class  Printer {
-
+	private static final Logger logger = LoggerFactory.getLogger(Printer.class);
 	
 		public static void printEntityList(String classname,List ls ){
 		
@@ -45,7 +51,33 @@ public  class  Printer {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}  
-	       
-			
 		}
+		
+		public static void printEntity(String classname,Object  o){
+			
+			try {
+				Class c=Class.forName(classname);
+				Field[] fields=c.getFields();
+				
+				for(Field f:fields){
+					f.setAccessible(true);  
+		            String field = f.toString().substring(f.toString().lastIndexOf(".")+1);
+		            logger.debug(field+"="+f.get(o));
+					
+				}
+			} catch (ClassNotFoundException | IllegalArgumentException | IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		public static void PrintVector(Vector v) {
+
+			Iterator it = v.iterator();
+			while (it.hasNext()) {
+				logger.debug(it.next().toString());
+
+			}
+		}
+		
 }

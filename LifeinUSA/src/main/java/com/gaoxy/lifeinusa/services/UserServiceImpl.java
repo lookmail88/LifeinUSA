@@ -16,8 +16,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gaoxy.lifeinusa.dao.SHUserDao;
-import com.gaoxy.lifeinusa.dao.UserDAO;
+import com.gaoxy.lifeinusa.dao.UserDao;
+import com.gaoxy.lifeinusa.dao.UserDAOHibernateExample;
 import com.gaoxy.lifeinusa.entities.Tusers;
 
 /**
@@ -32,7 +32,7 @@ import com.gaoxy.lifeinusa.entities.Tusers;
 public class UserServiceImpl implements UserService{
 	
 	@Autowired
-	private SHUserDao shuserdao;
+	private UserDao userdao;
 	//private UserDAO userdao;
 
 	/* (non-Javadoc)
@@ -54,25 +54,11 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public List<Tusers> getUserListbyHibernate() {
-		List<Tusers> ls=shuserdao.findAll();
+		List<Tusers> ls=userdao.findAll();
 		 
 		return (List)ls;
 	}
-//
-//	/**
-//	 * @return the userdao
-//	 */
-//	public UserDAO getUserdao() {
-//		return userdao;
-//	}
-//
-//	/**
-//	 * @param userdao the userdao to set
-//	 */
-//	public void setUserdao(UserDAO userdao) {
-//		this.userdao = userdao;
-//	}
-//	
+
 
 	
 

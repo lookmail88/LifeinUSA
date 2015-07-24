@@ -60,7 +60,7 @@ public class SysLogger {
 
 	static {
 	   // 可以单独指定log4j的配置文件,也可以使用默认.
-	   // org.apache.log4j.PropertyConfigurator.configure("log4j.properties");
+	   // org.apache.log4j.PropertyConfigurator.configure("classpath:log4j.xml");
 
 	   // 得到logger实例,作为输出工具.
 	   // 此句作用是用一个输出实例,取代每个类里面的： Logger.getLogger(X.class)
