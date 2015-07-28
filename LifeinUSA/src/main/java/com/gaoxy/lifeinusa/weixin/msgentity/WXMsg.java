@@ -36,7 +36,7 @@ public class WXMsg {
 	 * @param toUserName the toUserName to set
 	 */
 	public void setToUserName(String toUserName) {
-		ToUserName = toUserName;
+		ToUserName ="<![CDATA[" + toUserName+"]]>";
 	}
 	/**
 	 * @return the fromUserName
@@ -48,7 +48,7 @@ public class WXMsg {
 	 * @param fromUserName the fromUserName to set
 	 */
 	public void setFromUserName(String fromUserName) {
-		FromUserName = fromUserName;
+		FromUserName = "<![CDATA[" +fromUserName+"]]>";
 	}
 	/**
 	 * @return the createTime
@@ -60,7 +60,7 @@ public class WXMsg {
 	 * @param createTime the createTime to set
 	 */
 	public void setCreateTime(String createTime) {
-		CreateTime = createTime;
+		CreateTime = createTime ;
 	}
 	/**
 	 * @return the msgType
@@ -72,7 +72,7 @@ public class WXMsg {
 	 * @param msgType the msgType to set
 	 */
 	public void setMsgType(String msgType) {
-		MsgType = msgType;
+		MsgType ="<![CDATA[" + msgType+"]]>";
 	}
 	
 	

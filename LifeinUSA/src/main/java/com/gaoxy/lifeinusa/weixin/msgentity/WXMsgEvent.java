@@ -23,6 +23,10 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class WXMsgEvent extends WXMsg{
 	private String  Event; 
 	private String  EventKey;
+	
+	public WXMsgEvent(){
+		this.setMsgType("event");
+	}
 	/**
 	 * @return the event
 	 */
