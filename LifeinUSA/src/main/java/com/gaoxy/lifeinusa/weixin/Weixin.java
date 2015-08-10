@@ -14,7 +14,12 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -25,10 +30,16 @@ import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+
 import com.gaoxy.lifeinusa.services.WeixinServiceImpl;
 import com.gaoxy.lifeinusa.weixin.msgentity.WXMsg;
+import com.gaoxy.lifeinusa.weixin.msgentity.WXMsgImageText;
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.core.util.QuickWriter;
+import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
+import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
+import com.thoughtworks.xstream.io.xml.XppDriver;
 import com.thoughtworks.xstream.mapper.MapperWrapper;
 
 
@@ -50,19 +61,12 @@ import com.thoughtworks.xstream.mapper.MapperWrapper;
 public class Weixin {
 	private static final Logger logger = LoggerFactory.getLogger(Weixin.class);
 
+	private static final String Token="lifeinusa";
+	
 	
 	@SuppressWarnings("unchecked")
 	public static <T> T fromXml(String xmlStr, Class<T> cls) {
-//		// 注意：不是new Xstream(); 否则报错：java.lang.NoClassDefFoundError:
-//		// org/xmlpull/v1/XmlPullParserFactory
-//		XStream x=null;
-//		try {
-//			x = XStreamUtils.getXstream(Class.forName(classname));
-//		} catch (ClassNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
+ 	
 		XStream x = new XStream() {
 		    @Override
 		    protected MapperWrapper wrapMapper(MapperWrapper next) {
@@ -79,10 +83,7 @@ public class Weixin {
 		};
 		x.alias("xml", cls);
 		return  (T) x.fromXML(xmlStr);
-		
-		
-		
-
+ 
 	}
 
 	/**
@@ -90,7 +91,27 @@ public class Weixin {
 	 * @return
 	 */
 	public static String toXml(Object o) {
-		XStream x = new XStream();
+		 String PREFIX_CDATA="<";
+		 String SUFFIX_CDATA=">";
+		
+		XStream x = new XStream(new XppDriver() {
+			 public HierarchicalStreamWriter createWriter(Writer out) {
+
+			 return new PrettyPrintWriter(out) {
+
+			 protected void writeText(QuickWriter writer, String text) {
+
+			 if (text.startsWith(PREFIX_CDATA)
+
+			 && text.endsWith(SUFFIX_CDATA)) {
+
+			 writer.write(text);
+
+			 } else {
+
+			 super.writeText(writer, text);
+
+			} } }; }; });
 		// XStream xstream=new XStream(new DomDriver()); //直接用jaxp dom来解释
 		// XStream xstream=new XStream(new DomDriver("utf-8"));
 		// //指定编码解析器,直接用jaxp dom来解释
@@ -101,10 +122,44 @@ public class Weixin {
 	}
 
 	/**
+	 * 处理微信服务器验证
+	 *
 	 * @param inputStr
 	 * @param class1
 	 * @return
+	 *  
 	 */
+	public static String getVerify (String signature, String timestamp, String nonce, String echostr){
+		String re="";
+		
+		
+		logger.debug("------>>timestamp="+timestamp);
+		logger.debug("------>>nonce="+nonce);
+		logger.debug("------>>echostr="+echostr);
+		logger.debug("------>>signature="+signature);
+		
+		// 重写totring方法，得到三个参数的拼接字符串
+		List<String> list = new ArrayList<String>(3) {
+		private static final long serialVersionUID = 2621444383666420433L;
+			public String toString() {
+				return this.get(0) + this.get(1) + this.get(2);
+			}
+		};
+		list.add(Token);
+		list.add(timestamp);
+		list.add(nonce);
+		Collections.sort(list);// 排序
+		String tmpStr = new MySecurity().encode(list.toString(),MySecurity.SHA_1);// SHA-1加密
+		
+		if (signature.equals(tmpStr)) {
+			re= echostr;// 请求验证成功，返回随机码
+		} else{
+			re="";//验证失败，返回空值
+		}
+		
+		return re;
 
+		
+	}
 
 }

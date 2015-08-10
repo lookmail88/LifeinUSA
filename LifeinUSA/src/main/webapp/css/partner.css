@@ -1,0 +1,60 @@
+html,body{
+	width: 1200px;
+	height: 1200px;
+	white-space:nowrap;
+	display: inline;	
+	overflow: hidden;
+	background-color: beige;
+}
+
+#gsidebar{
+	float: left;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: inline;
+	
+}
+main{
+	margin-left: 20px;
+	float: left;
+	display: inline;
+	overflow-y: auto;
+}
+.partner-background1{
+	background: url("/images/sandiego_city_2.jpg") no-repeat center;
+	 -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
+	width: 100%;
+	height: 600px;
+	text-align: center;
+	overflow:hidden; 
+	
+}
+
+.loginpanel{
+	border: 2px solid rgba(0,0,0,0.4);
+	border-radius: 5px;
+	background-color: rgba(255,255,255,0.8);
+	width: 100%;
+	overflow: hidden;
+	padding: 20px;
+	margin-top: 20px;
+	height: 100%
+	font-size: 1.5em;
+	
+	
+}
+
+.loginpanel li{
+	margin: 10px;
+}
+
+.border{
+	border:1px solid gray;
+	background-color: aquamarine;
+}
+
+

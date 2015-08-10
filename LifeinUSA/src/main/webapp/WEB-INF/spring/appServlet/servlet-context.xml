@@ -25,9 +25,13 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	<context:property-placeholder location="classpath:application.properties" />
-	<context:component-scan base-package="com.gaoxy.lifeinusa.weixin" />
+	 
 	
+	 <context:component-scan base-package="com.gaoxy.lifeinusa" />
+ 
+	 
+	 
+	<context:property-placeholder location="classpath:application.properties" />
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -44,7 +48,7 @@
             <beans:list>
                 <beans:value>com.websystique.spring.model</beans:value>
                 <!-- 自动扫描实体对象 com.gaoxy.lifeinusa.entities的包结构中存放实体类 -->
-                <beans:value>com.gaoxy.lifeinusa.weixin.entities</beans:value>
+                <beans:value>com.gaoxy.lifeinusa.entities</beans:value>
             </beans:list>
         
             

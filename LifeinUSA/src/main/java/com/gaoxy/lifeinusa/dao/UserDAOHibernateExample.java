@@ -35,7 +35,7 @@ public interface UserDAOHibernateExample {
 
 	public Tusers findById(java.lang.String id);
 
-	public List findByExample(Tusers instance) ;
+	public List<Tusers> findByExample(Tusers instance) ;
 	
-	public List findAll();
+	public List<Tusers> findAll();
 }

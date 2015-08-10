@@ -10,21 +10,18 @@
 
 package com.gaoxy.lifeinusa.services;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.gaoxy.lifeinusa.controller.WinxinController;
-import com.gaoxy.lifeinusa.weixin.MySecurity;
 import com.gaoxy.lifeinusa.weixin.Weixin;
+import com.gaoxy.lifeinusa.weixin.msgentity.Item;
+import com.gaoxy.lifeinusa.weixin.msgentity.WXMsg;
+import com.gaoxy.lifeinusa.weixin.msgentity.WXMsgImageText;
 
 
 /**
@@ -42,106 +39,66 @@ public class WeixinServiceImpl implements WeixinService{
 	private String Appid="";
 	private String Token="lifeinusa";
 	
+
 	/* (non-Javadoc)
-	 * @see com.gaoxy.lifeinusa.services.WeixinService#getReturnMsg(java.lang.String, javax.servlet.http.HttpServletRequest)
+	 * @see com.gaoxy.lifeinusa.services.WeixinService#getServiceReplyMsg(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
 	 */
 	@Override
-	public String getReturnMsg(String appid, HttpServletRequest request) {
-		String re="";
+	public String getConfigVerifyMsg(String appid, String signature, String timestamp, String nonce, String echostr) {
 		// TODO Auto-generated method stub
-		
-		if(request.getMethod().equalsIgnoreCase("get")){
-			logger.debug("------>>get http request by get method");
-			this.Request=request;
-			this.Appid=appid;
-			re=this.doget();
-		}else 
-		if(request.getMethod().equalsIgnoreCase("post")){
-			logger.debug("------>>get http request by post method");
-			this.Request=request;
-			this.Appid=appid;
-			re=this.dopost();
-			
-		}
-		
-		return re;
+		String re="";
+		re=Weixin.getVerify( signature,  timestamp,  nonce,  echostr);
+		return echostr;
 	}
 
-	/**
-	 * 处理微信服务器验证
-	 * 
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+
+	/* (non-Javadoc)
+	 * @see com.gaoxy.lifeinusa.services.WeixinService#getConfigVerifyMsg(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
 	 */
-	private String doget(){
+	@Override
+	public String getServiceReplyMsg(String appid, String signature, String timestamp, String nonce,
+			String requestBody) {
 		String re="";
+		WXMsg msg=new WXMsg();
+		msg=Weixin.fromXml(requestBody, msg.getClass());
 		
-		String timestamp="";
-		if(this.Request.getParameter("timestamp")!=null)timestamp=this.Request.getParameter("timestamp");
-		
-		String nonce="";
-		if(this.Request.getParameter("nonce")!=null)nonce=this.Request.getParameter("nonce");
-		
-		String echostr="";
-		if(this.Request.getParameter("echostr")!=null)echostr=this.Request.getParameter("echostr");
-		
-		String signature="";
-		if(this.Request.getParameter("signature")!=null)signature=this.Request.getParameter("signature");
-		
-		logger.debug("------>>timestamp="+timestamp);
-		logger.debug("------>>nonce="+nonce);
-		logger.debug("------>>echostr="+echostr);
-		logger.debug("------>>signature="+signature);
-		
-		// 重写totring方法，得到三个参数的拼接字符串
-		List<String> list = new ArrayList<String>(3) {
-		private static final long serialVersionUID = 2621444383666420433L;
-			public String toString() {
-				return this.get(0) + this.get(1) + this.get(2);
-			}
-		};
-		list.add(Token);
-		list.add(timestamp);
-		list.add(nonce);
-		Collections.sort(list);// 排序
-		String tmpStr = new MySecurity().encode(list.toString(),MySecurity.SHA_1);// SHA-1加密
-		
-		if (signature.equals(tmpStr)) {
-			re= echostr;// 请求验证成功，返回随机码
-		} 
-		
-		return re;
-	}
-	
-	
-	/**
-	 * 处理微信服务器发过来的各种消息，包括：文本、图片、地理位置、音乐等等
-	 * 
-	 * 
-	 */
-	private String dopost(){
-		String re="";
-		
-		String timestamp="";
-		if(this.Request.getParameter("timestamp")!=null)timestamp=this.Request.getParameter("timestamp");
-		
-		String nonce="";
-		if(this.Request.getParameter("nonce")!=null)nonce=this.Request.getParameter("nonce");
-		
-		String signature="";
-		if(this.Request.getParameter("signature")!=null)signature=this.Request.getParameter("signature");
-		
+		if(msg.getMsgType().equalsIgnoreCase("event")){
+			logger.debug("------>>\n"+"get weixin event message");
+			WXMsgImageText m=new WXMsgImageText();
+			m.setFromUserName(msg.getToUserName());
+			m.setToUserName(msg.getFromUserName());
+			m.setCreateTime(msg.getCreateTime());
 			
-		
-		
-		logger.debug("------>>timestamp="+timestamp);
-		logger.debug("------>>nonce="+nonce);
-		logger.debug("------>>signature="+signature);
-		
-		
-		
+			Item it=new Item();
+			it.setDescription("abc");
+			it.setTitle("test ImageText");
+			it.setUrl("http://www.google.com");
+			it.setPicUrl("http://www.google.com/images/001.png");
+			
+			Item it2=new Item();
+			it2.setDescription("abc");
+			it2.setTitle("test ImageText");
+			it2.setUrl("http://www.google.com");
+			it2.setPicUrl("http://www.google.com/images/001.png");
+			
+			m.setArticleCount("2");
+			
+			ArrayList ls=new ArrayList();
+			ls.add(it);
+			ls.add(it2);
+			
+			m.setArticles(ls);
+			
+			
+			re=Weixin.toXml(m);
+			logger.debug("------>>\n"+"get weixin  message, message type is"+re);
+		}else{
+			logger.debug("------>>\n"+"get weixin  message, message type is"+msg.getMsgType());
+			
+		}
+			
 		return re;
-		
+
 	}
 	
 	

@@ -8,7 +8,7 @@
 * @version 1.0
 */
 
-package com.gaoxy.lifeinusa.system;
+package com.gaoxy.lifeinusa.system.tool;
 
 import java.lang.reflect.Field;
 import java.util.Iterator;
@@ -47,10 +47,14 @@ public  class  Printer {
 			            System.out.println(field+"="+f.get(c));
 			        } 
 	        	}
-			} catch (ClassNotFoundException | IllegalArgumentException | IllegalAccessException e) {
+			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}  
+			}  catch( IllegalArgumentException e ){
+				e.printStackTrace();
+			}catch(IllegalAccessException e){
+				e.printStackTrace();
+			}
 		}
 		
 		public static void printEntity(String classname,Object  o){
@@ -65,8 +69,12 @@ public  class  Printer {
 		            logger.debug(field+"="+f.get(o));
 					
 				}
-			} catch (ClassNotFoundException | IllegalArgumentException | IllegalAccessException e) {
+			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}  catch( IllegalArgumentException e ){
+				e.printStackTrace();
+			}catch(IllegalAccessException e){
 				e.printStackTrace();
 			}
 		}

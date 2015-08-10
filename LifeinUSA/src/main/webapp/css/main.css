@@ -1,0 +1,315 @@
+html,body			{
+					font-family: 'Roboto';
+					font-size: 1em;
+					height:100%;
+				}
+header 			{
+					height: 1.5em;
+					background-color: rgba(0, 0, 0, 0.6);
+					color: white;
+					font-size: 2em;
+					font-weight: 900;
+					position: fixed;
+					top: 0;
+					left: 0;
+					z-index: 1;
+					width: 100%;
+					height: 80px;
+					
+				}
+ul,li{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.appmenu li a:link,
+.appmenu li a:visited,
+.appmenu li a:hover,
+.appmenu li a:active{
+	color: white;
+	text-decoration: none;
+ 
+}
+ 
+header ul li    {
+					list-style: none;
+					float: left;
+					margin-left: 0px;
+					padding: 0px;
+					font-size: 0.75em;
+					font-weight: 400;
+					padding: 10px;
+					margin-top: 10px;
+					
+				}
+header>ul>li{
+	height: auto;
+}
+
+main{
+	margin-top: 80px;
+	padding: 0px;
+}
+
+
+.autoimg{
+	width: 100%;
+	height: auto;
+}
+
+#step1{
+	background-image: url(/images/sandiego_city_1.jpg);
+	background-size:cover;
+	width: 100%;
+	height: 500px;
+	text-align: center;
+}
+
+#step1>ul{
+	margin: 0 auto;
+	padding-top: 200px;
+}
+
+#step1>ul>li:nth-child(1){
+	color: white;
+	font-size: 2em;
+}
+
+
+
+
+#step1 input{
+	width: 100%;
+}
+
+#step1 button{
+	width: 100%;
+}
+
+
+.inputbackground{
+	/**border: 10px solid rgba(0, 0, 0, 0.4);
+	border-radius: 10px;//*/
+	margin: 0 auto;
+	width: 45%;
+	background-color: rgba(0, 0, 0, 0.4);
+	padding: 0.5em;
+	border-radius: 10px;
+	overflow:hidden; 
+}
+.inputbackground li{
+	float: left;
+	width: 50%;
+	height: auto;
+	padding: 5px;
+}
+
+
+.devide{
+	clear: both;
+	width: 100%;
+	height: 100px;
+	background-color: #185faf;
+<!--background-color: #ea0b8c;	-->
+	
+}
+
+
+.flip-container .front, 
+.flip-container .back,
+.flip-container img           	{
+					
+					backface-visibility: hidden;
+					position: absolute;
+				}
+.flip-container .front{
+	box-shadow: 10px 10px 5px #888888;
+}
+
+.flip-container .back{
+	background-color: white;
+	padding:10px;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+
+/* entire container, keeps perspective */
+.flip-container {
+	/**perspective: 100;//*/
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);	
+	}
+
+.flip-container, .front, .back {
+	width: 300px;
+	height: 300px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.flipper .back li:nth-child(1){
+	font-size: 2em;
+	color: #5f6db3;
+	font-weight: 700;
+	text-align: center;
+	margin-top: 20px;
+	
+}
+.flipper .back li:nth-child(2){
+	font-size: 1em;
+	text-align: center;
+	color: #5f6db3;
+	margin-top: 20px;
+}
+.flipper .back li:nth-child(3){
+	margin-top: 20px;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+.flipper .back li button{
+	background-color: #99cd4e;
+	color: white;
+	font-weight: 700;
+	border-radius: 5px;
+	padding: 5px;
+
+}
+.flipper .back li button:hover{
+	background-color: #ccff66;
+	color: black;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}
+
+
+/*footer css*/
+.footgary  {
+		background-color: #444444;
+		width: 100%;
+		height: auto;
+		color: white;
+		padding-top: 40px;
+}
+.footgary ul{
+	list-style: none;
+}
+.footgary ul li:nth-child(1){
+	font-size: 1.1em;
+	font-weight: 900;
+}
+.footgary .footinput li {
+	height: 30px;
+	width: auto;
+}
+.footgary .footinput input{
+	width:70%;
+	border-radius: 5px;
+}
+
+.footgary ul li div{
+	float: left;
+}
+.footgary ul li div:nth-child(1){
+	width: 30%;
+}
+.footgary ul li div:nth-child(2){
+	width: 70%;
+}
+
+.footgary img{
+	float: right;
+}
+
+.footgary input{
+	color: black;
+}
+.footgary input[type=checkbox]{
+	width: 10px;
+}
+
+.footgary input[type=submit]{
+	border: 2px solid white;
+	width: 80px;
+	color: white;
+}
+
+
+.footblack  {
+		background-color: #222222;
+		padding-top: 20px;
+		padding-bottom: 20px;
+}
+.footblack ul li{
+	color: white;
+	font-size: 1.2em;
+	
+	
+}
+
+.footblack .social li {
+	float: left;
+	margin: 10px;
+}
+
+.footblack ul li img:hover {
+					width: 35px;
+					height: 35px;
+					border-radius: 50%;
+					transition: 0.6s;
+				}
+
+.modal-body li{
+	margin:0 auto;
+	width: 80%;
+	
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.partner-background1{
+	background: url("/images/sandiego_city_2.jpg") no-repeat center;
+	 -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
+	width: 100%;
+	height: 600px;
+	text-align: center;
+	overflow:hidden; 
+	
+}
+
+.loginpanel{
+	border: 2px solid rgba(0,0,0,0.4);
+	border-radius: 5px;
+	background-color: rgba(255,255,255,0.8);
+	width: 100%;
+	overflow: hidden;
+	padding: 20px;
+	margin-top: 20px;
+	height: 100%
+	font-size: 1.5em;
+	
+	
+}
+
+.loginpanel li{
+	margin: 10px;
+}

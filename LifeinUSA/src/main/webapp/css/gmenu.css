@@ -1,0 +1,59 @@
+#gmenu,
+#gmenu ul,
+#gmenu ul li 		{
+						list-style: none;
+						line-height: 2em;
+						margin: 0px;
+						padding: 0px;
+						z-index: 1000;
+					}
+
+
+#gmenu 				{
+						margin: 0 auto; 
+						text-align: left;
+						height: 30px;
+						font-family: 'Roboto';
+						font-size: 1.5em;
+						font-weight: 900;
+				
+					}
+#gmenu ul			{
+					background-color: #99cd4e;
+}
+#gmenu a 			{
+						color: white;
+						text-decoration: none;
+						font-family: 'Roboto';
+						font-weight: 900;
+					}
+#gmenu a:hover 		{
+						color: black;
+						text-decoration: none;
+					}
+
+
+#gmenu li li 		{font-size:16px;}
+
+#gmenu>ul li		{
+						padding: 0px;
+						white-space:nowrap;
+						overflow: hidden;
+					}
+#gmenu>ul ul>li     {
+						border-top: 1px solid #888;
+    					border-bottom: 1px solid #fff;
+						
+}
+
+
+
+.gmenuhighlight{
+	background-color: #ccff66;
+}
+.gmenuhightlightfont{
+	color: black;
+}
+ 
+
+/*#gmenu>ul>li{float: left;}ccff66//*/

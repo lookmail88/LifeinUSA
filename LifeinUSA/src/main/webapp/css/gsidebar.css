@@ -1,0 +1,38 @@
+#gsidebar{
+	position: relative;
+	height: 100%;
+	left: 0;
+	background-color: rgba(0,0,0,0.75);
+	overflow: hidden;
+	color: #DDDDDD;
+	font-size: 1.5em;
+}
+
+#gsidebar ul,
+#gsidebar li{
+	margin: 10px;
+	padding: 0px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 90%;
+}
+
+
+#gsidebar li>span:nth-child(1){
+	width: 30px;
+	height: 30px;
+	margin-left: 0px;
+	margin-right: 10px;
+}
+
+#gsidebar a
+#gsidebar a:hover,
+#gsidebar a:visited,
+#gsidebar a:link
+{
+	color: gainsboro;
+	text-decoration: none;
+}
+
