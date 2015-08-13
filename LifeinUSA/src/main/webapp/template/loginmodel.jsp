@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
   <div class="modal-dialog" >
     <div class="modal-content" style="background-color:rgba(255,255,255,0.75)">
@@ -7,13 +8,15 @@
       </div>
       <div class="modal-body" style="margin: 0 auto;">
         <ul >
+        <form  action="/partner/index" method="post">     
 			<li>
-				<input class="form-control" type="email" placeholder="Email">
+				<input class="form-control" type="text" placeholder="Email"  name="username">
 			</li>	
 			
 			<li>
-				<input class="form-control" type="password" placeholder="Passwrod">
+				<input class="form-control" type="password" placeholder="Passwrod" name="password">
 			</li>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<li>
 				<div class="checkbox">
   <label>
@@ -27,6 +30,7 @@
 				<a>Forget Password</a>
 				<button class="btn btn-info pull-right" type="submit">Submit</button>
 			</li>
+			</form>             
 		</ul>
       </div>
        

@@ -1,7 +1,8 @@
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<sec:csrfMetaTags/>
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
@@ -94,7 +95,7 @@
 					<div class="col-md-4">
 						<div class="loginpanel" >
 							<ul >
-								<form class="form-group has-success has-feedback">
+								<form class="form-group has-success has-feedback"  >
 									<li>Sign Up</li>
 									
 								<li>

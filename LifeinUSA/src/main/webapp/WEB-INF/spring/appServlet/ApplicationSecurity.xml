@@ -7,17 +7,29 @@
                         http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
                         http://www.springframework.org/schema/security
                         http://www.springframework.org/schema/security/spring-security-4.0.xsd">
- 	<http auto-config="true">
+                        
+                        
+                        
+ 	<http auto-config="true" >
 		<intercept-url pattern="/admin**" access="ROLE_ADMIN" />
-		<intercept-url pattern="/partner**" access="ROLE_ADMIN,ROLE_Partner" />
+		<intercept-url pattern="/partner**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+
+	<form-login 
+		    login-page="/plogin.jsp" 
+		    default-target-url="/partner" 
+			authentication-failure-url="/login?error" 
+			username-parameter="username"
+			password-parameter="password" />
+		<logout logout-success-url="/login?logout" />
+		
 	</http>
 
 	<authentication-manager>
 	  <authentication-provider>
 	    <user-service>
-		<user name="mkyong" password="123456" authorities="ROLE_USER" />
+		<user name="gaoxy" password="123456" authorities="ROLE_USER" />
 		<user name="admin" password="123456" authorities="ROLE_ADMIN" />
-		<user name="partner" password="123456" authorities="ROLE_Partner" />
+		
 	    </user-service>
 	  </authentication-provider>
 	</authentication-manager>

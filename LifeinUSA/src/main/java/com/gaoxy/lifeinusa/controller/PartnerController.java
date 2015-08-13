@@ -19,6 +19,7 @@ import com.gaoxy.lifeinusa.system.SysLogger;
  * Handles requests for the application home page.
  */
 @Controller
+@RequestMapping(value = "/partner")
 public class PartnerController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(PartnerController.class);
@@ -30,7 +31,7 @@ public class PartnerController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/partner", method = RequestMethod.GET)
+	@RequestMapping(value = "/index", method = RequestMethod.POST)
 	public String home(Locale locale, Model model) {
 		logger.debug("Welcome home! The client locale is {}.");
 		//System.out.println("--------------------------------------------------------");
