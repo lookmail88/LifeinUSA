@@ -1582,9 +1582,16 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+
+@media (min-width: 200px) {
+  .container {
+    width: 250px;
+  }
+}
+
 @media (min-width: 400px) {
   .container {
-    width: 360px;
+    width: 380px;
   }
 }
 @media (min-width: 768px) {

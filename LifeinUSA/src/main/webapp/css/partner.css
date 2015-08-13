@@ -1,10 +1,10 @@
 html,body{
 	width: 1200px;
-	height: 1200px;
+	height: 1500px;
 	white-space:nowrap;
 	display: inline;	
-	overflow: hidden;
 	background-color: beige;
+	overflow-y: auto;
 }
 
 #gsidebar{
@@ -21,40 +21,98 @@ main{
 	display: inline;
 	overflow-y: auto;
 }
-.partner-background1{
-	background: url("/images/sandiego_city_2.jpg") no-repeat center;
-	 -webkit-background-size: cover;
-	 -moz-background-size: cover;
-	 -o-background-size: cover;
-	 background-size: cover;
-	width: 100%;
-	height: 600px;
-	text-align: center;
-	overflow:hidden; 
-	
-}
 
-.loginpanel{
-	border: 2px solid rgba(0,0,0,0.4);
-	border-radius: 5px;
-	background-color: rgba(255,255,255,0.8);
-	width: 100%;
-	overflow: hidden;
-	padding: 20px;
-	margin-top: 20px;
-	height: 100%
-	font-size: 1.5em;
-	
-	
-}
-
-.loginpanel li{
-	margin: 10px;
-}
 
 .border{
 	border:1px solid gray;
 	background-color: aquamarine;
 }
 
+.title{
+	color: #185faf;
+	min-height: 25px;
+	height: auto;
+	line-height: 50px;
+	
+	font-size: 1.5em;
+	font-weight: 800;
+}
 
+.content{
+	color: black;
+	min-height: 25px;
+	height: auto;
+	line-height: 30px;
+	font-size: 1.5em;
+}
+
+.content input{
+	width: 80%;
+}
+
+ 
+
+#wxtab ul li{
+	width: 25%!important;
+	text-align: center;
+}
+#wxtab .tab-pane{
+	background-color: white;
+	padding: 10px;
+	border-right: 1px solid #dddddd;
+	border-left: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	border-radius: 0px,0px,5px,5px;
+	
+	overflow: hidden;
+}
+
+.imgborder{
+	border: 5px solid #eeeeee;
+	border-radius: 5px;
+}
+
+.circle{
+	width: 50px;
+	height: 50px;
+	font-size: 25px;
+	font-weight: 900;
+	border: 5px solid #dddddd;
+	border-radius: 25px;
+	text-align: center;
+	
+}
+
+.hrz{
+	height: 1px;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+	margin-right: 0xp;
+}
+
+.mtext{
+	width:70%!important;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.fileupload{
+	position: relative;
+	width: 300px;
+	height: 50px;
+	z-index: 3;
+	opacity: 0;
+	
+	
+}
+
+.bb{
+	position: relative;
+	left: -300px;
+	width: 300px;
+	height: 50px;
+	z-index: 2;
+	background-color: cornflowerblue;
+}

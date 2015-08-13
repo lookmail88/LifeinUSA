@@ -19,11 +19,10 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto:900,500,900italic,400italic,700italic,300,700,500italic,300italic,400' rel='stylesheet' type='text/css'>
 
   <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– 
-  <link rel=stylesheet href="/css/main.css">-->
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel=stylesheet href="/css/main.css">
   <link rel="stylesheet" href="/css/normalize.css"> 
-  <link rel=stylesheet href="/css/gsidebar.css">
- <link rel=stylesheet href="/css/partner.css">
+  <link rel=stylesheet href="/css/gmenu.css">
  <!-- Printer CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
@@ -50,12 +49,11 @@
 <script type="text/javascript" src="/js/site/main.js"></script>	
 
 <script type="text/javascript" src="/js/gsidebar.js"></script>	
+<link rel="stylesheet" href="/css/gsidebar.css">
 	
 <link rel="stylesheet" href="/bootstrap/bootstrap-3.3.4/css/bootstrap.css">
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="/js/ng-flow-standalone.js"></script>		
-	
 		
 	<script>
 		$(document).ready( function() {
@@ -67,29 +65,32 @@
 		});
 	</script>
 
- 
+	
+	
 	
 </head>
-<body ng-app="lifeinusa" >
-	
+<body ng-app="lifeinusa">
+	<header>
+		<div class="container" id="thisistop">
+			<div class="row">
+				<div class="col-md-4" style="margin-top:15px;">
+					 LifeInUSA--This is Partner
+				</div>
+				<div class="col-md-8">
+<!--	login information	-->
+				</div>
+			</div>
+		</div>
+	</header>
+	<div id="gsidebar"></div>
 <!-- Nav End
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<div id="gsidebar"></div>	
+	
 	
 <!-- Primary Page Layout 
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-	<main >
-		<article class="container" >
-			<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6 border">
-				
-				 
-				
-				</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 border">grid</div>
-			
-			</div>
-		</article>
+	<main>
+ 
 		
 	</main>
 

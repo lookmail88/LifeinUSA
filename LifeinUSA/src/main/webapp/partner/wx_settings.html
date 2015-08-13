@@ -77,11 +77,208 @@
 <!-- Primary Page Layout 
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<main >
+		<div class="title">
+			/partner/wx_setting.html
+		</div>	
 		<article class="container" >
 			<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6 border">grid</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 border">grid</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 ">
+<div id="wxtab">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">STEP1</a></li>
+    <li role="presentation" class=" "><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">STEP2</a></li>
+    <li role="presentation" class=" "><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">STEP3</a></li>
+    <li role="presentation" class=" "><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">TEST</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 title">
+			第一步： 填写微信公众号类型与基本信息
+				</div>
+			</div>
 			
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 title">
+					选择公众号类型
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-8 content">
+					  <select class="selectpicker " data-style="btn-info">
+						  
+						      <optgroup label="订阅号" data-max-options="2">
+								  <option>普通订阅号</option>
+								  <option>认证订阅号</option>
+							  </optgroup>
+							  <optgroup label="服务号" data-max-options="2">
+								  <option>普通服务号</option>
+								  <option>认证服务号</option>
+								  
+							  </optgroup>
+  
+  					  </select>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 title">
+					公众号名称:
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-8 content">
+					<input type="text" required/>  
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 title">
+					公众号简介:
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-8 content">
+					<input type="text" required/>  
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 title">
+					公众号二维码:
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-8 content">
+					<input type="file"   class="btn btn-info">上传二维码</input>  
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-12 ">
+				<button type="submit" class="btn btn-info">下一步</button>
+				</div>
+			</div>		
+		</div>  
+	</div>
+	
+	<!--	第二步： 配置微信开发者凭据-->
+    <div role="tabpanel" class="tab-pane" id="profile">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 title">
+			第二步： 配置微信开发者凭据
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 title">
+					AppID(应用ID):
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-8 content">
+					<input type="text"  required/>  
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 title">
+					AppSecret(应用密钥)
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-8 content">
+					<input type="text" required/>  
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 ">
+					<img src="/images/tab2-2.png" alt="exapmle"/>
+				</div>
+			</div>
+		</div>
+	    <div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-12 ">
+				<button type="submit" class="btn btn-info">下一步</button>
+				</div>
+		</div>	
+	
+	</div>
+	
+<!--	第三步：进入微信公众平台并设置接口-->
+    <div role="tabpanel" class="tab-pane" id="messages">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 title">
+			第三步：进入微信公众平台并设置接口
+				</div>
+			</div>
+			
+			<div class="row">
+				
+				<div class="col-md-1">
+					<div class="circle">1</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-11">
+			 		进入微信公共平台 http://mp.weixin.qq.com<br/>
+					登录微信公众平台，点击进入【开发者中心】
+				</div>
+				<div class="col-md-1">
+					 
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-11">
+			 		<img src="/images/account21.jpg" class="imgborder">
+				</div>
+			</div>
+			
+			<hr class="hrz"/>
+			
+			<div class="row">
+				<div class="col-md-1">
+					<div class="circle">2</div>
+				</div>
+				<div class="col-xs-11 col-sm-11 col-md-11">
+			 	修改服务器配置<br/>在服务器配置处，点击【修改配置】
+				</div>
+				<div class="col-md-1"></div>
+				<div class="col-xs-6 col-sm-6 col-md-11">
+			 		<img src="/images/account22.jpg" class="imgborder">
+				</div>
+			</div>
+			
+			<hr class="hrz"/>
+			
+			<div class="row">
+				
+				<div class="col-md-1">
+					<div class="circle">3</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-11">
+			 	配置微信接口<br/>分别将下方的信息复制到【接口配置信息】的输入框
+				</div>
+				
+				<div class="col-xs-6 col-sm-6 col-md-7">
+			 		<img src="/images/account23.png" class="imgborder">
+				</div>
+				<div class="col-md-4">
+					<button class="btn btn-info">URL</button>
+					<textarea class="form-control mtext" rows="3"></textarea>
+					<button class="btn btn-info">Token</button>
+					<textarea class="form-control mtext" rows="3"></textarea>
+					<button class="btn btn-info">EncodingAESkey</button>
+					<textarea class="form-control mtext" rows="3"></textarea>
+				</div>
+				
+			</div>
+			
+			<hr class="hrz"/>
+			
+			<div class="row">
+				<button class="btn btn-info">下一步</button>
+			</div>
+		</div>
+	</div>
+    <div role="tabpanel" class="tab-pane" id="settings">4</div>
+  </div>
+
+</div>
+							
+
+				</div>
 			</div>
 		</article>
 		

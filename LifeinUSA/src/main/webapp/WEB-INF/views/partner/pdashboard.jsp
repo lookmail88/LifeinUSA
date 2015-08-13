@@ -74,7 +74,7 @@
 		<div class="container" id="thisistop">
 			<div class="row">
 				<div class="col-md-4" style="margin-top:15px;">
-					 LifeInUSA
+					 LifeInUSA--This is Manager
 				</div>
 				<div class="col-md-8">
 <!--	login information	-->

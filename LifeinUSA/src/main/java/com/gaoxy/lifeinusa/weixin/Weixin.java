@@ -91,8 +91,8 @@ public class Weixin {
 	 * @return
 	 */
 	public static String toXml(Object o) {
-		 String PREFIX_CDATA="<";
-		 String SUFFIX_CDATA=">";
+		 final String PREFIX_CDATA="<";
+		 final String SUFFIX_CDATA=">";
 		
 		XStream x = new XStream(new XppDriver() {
 			 public HierarchicalStreamWriter createWriter(Writer out) {
