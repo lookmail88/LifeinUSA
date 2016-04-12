@@ -35,17 +35,8 @@
  
 	 
 	 
-	<context:property-placeholder location="/WEB-INF/application.properties" />
-	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
-	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <beans:property name="driverClassName" value="${jdbc.driverClassName}" />
-        <beans:property name="url" value="${jdbc.url}"/>
-        <beans:property name="username" value="${jdbc.username}" />
-        <beans:property name="password" value="${jdbc.password}"/>
-         
-    </beans:bean>
-    
+
+
 	<beans:bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" >
         <beans:property name="dataSource" ref="dataSource"/>
         <beans:property name="packagesToScan">
@@ -57,7 +48,9 @@
         
             
         </beans:property>
-        <beans:property name="hibernateProperties">
+        
+        
+      <beans:property name="hibernateProperties">
             <beans:props>
                 <beans:prop key="hibernate.dialect">${hibernate.dialect}</beans:prop>
                 <beans:prop key="hibernate.show_sql">${hibernate.show_sql:false}</beans:prop>

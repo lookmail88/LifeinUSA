@@ -17,15 +17,15 @@
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
-		<level value="debug" />
+		<level value="info" />
 	</logger>
 	
 	<logger name="org.springframework.beans">
-		<level value="debug" />
+		<level value="info" />
 	</logger>
 	
 	<logger name="org.springframework.context">
-		<level value="debug" />
+		<level value="info" />
 	</logger>
 
 	<logger name="org.springframework.web">
@@ -35,10 +35,13 @@
 		<level value="debug" />
 	</logger>
 	
+	<logger name="com.mchange.v2">
+    	<level value="info"/>
+	</logger>
 	
 	
 	<logger name="org.hibernate">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 
 	<!-- Root Logger -->

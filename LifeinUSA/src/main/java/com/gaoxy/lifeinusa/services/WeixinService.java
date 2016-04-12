@@ -10,11 +10,15 @@
 
 package com.gaoxy.lifeinusa.services;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.gaoxy.lifeinusa.entities.TWxAppinfo;
 
 /**
 * <p>Title: WeixinService</p>
@@ -24,6 +28,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 * @date Jul 23, 2015
 */
 public interface WeixinService {
+	
+	public TWxAppinfo addNewApp(String appid,
+							String appname,
+							String appdesc,
+							String appsecret,
+							String servicetype,
+							String username
+			);
+	
 	public String getServiceReplyMsg( String appid,
 			 						  String signature,
 			                          String timestamp,

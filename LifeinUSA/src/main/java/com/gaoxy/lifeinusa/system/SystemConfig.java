@@ -38,4 +38,23 @@ public class SystemConfig {
 	public static String WeinxinsendallUrl="https://api.weixin.qq.com/cgi-bin/message/mass/sendall?access_token=%s";
 	
 	public static String Weixinip_list="";
+	
+	
+	
+	
+	//sys config list
+	
+	public static String User_Type_Partner="ROLE_Partner";
+	public static String User_Type_WebAdmin="ROLE_WebAdmin";
+	public static String User_Type_Service="ROLE_Service";
+	
+	public static String User_initlize_file_path="/usr/local/lifeinusa";
+	public static String[] User_initlize_SubPath = {"html","css","wxmsg","images","js"};
+	
+	public static String Partner_Login_Success="partner/pdashboard";
+	public static String Partner_Login_Failed="redirect:/plogin.jsp?errorcode=3";
+	
+	public static String DomainUrl="http://www.lifeinusa.com";
+	public static String WxServerVisitUrl=DomainUrl+"/rest/weixin";
+	
 }

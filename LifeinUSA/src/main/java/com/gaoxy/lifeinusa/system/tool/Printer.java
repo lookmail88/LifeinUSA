@@ -13,6 +13,8 @@ package com.gaoxy.lifeinusa.system.tool;
 import java.lang.reflect.Field;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.Vector;
 
 import org.slf4j.Logger;
@@ -79,13 +81,26 @@ public  class  Printer {
 			}
 		}
 		
-		public static void PrintVector(Vector v) {
+		public static void Print(List list) {
 
-			Iterator it = v.iterator();
+			Iterator it = list.iterator();
 			while (it.hasNext()) {
-				logger.debug(it.next().toString());
+				logger.debug("------>>"+it.next().toString());
 
 			}
+		}
+		
+		public static void Printer(Map m) {
+			
+			Set en=m.keySet();
+			
+			Iterator it=en.iterator();
+			
+			while(it.hasNext()){
+				Object key=it.next();
+				logger.debug(key.toString()+"="+m.get(key));
+			}
+			
 		}
 		
 }

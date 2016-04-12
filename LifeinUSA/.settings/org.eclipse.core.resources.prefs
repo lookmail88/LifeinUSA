@@ -2,5 +2,6 @@ eclipse.preferences.version=1
 encoding//src/main/resources/weixin4j.properties=UTF-8
 encoding//src/main/webapp/WEB-INF/views/admin/adashboard.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/manager/mdashboard.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/partner/pdashboard.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/partner/wx-upload.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/partner/wx_settings.jsp=UTF-8
 encoding//src/main/webapp/plogin.jsp=UTF-8

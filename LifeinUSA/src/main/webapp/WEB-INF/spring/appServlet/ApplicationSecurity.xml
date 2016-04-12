@@ -8,31 +8,119 @@
                         http://www.springframework.org/schema/security
                         http://www.springframework.org/schema/security/spring-security-4.0.xsd">
                         
-                        
-                        
- 	<http auto-config="true" >
-		<intercept-url pattern="/admin**" access="ROLE_ADMIN" />
-		<intercept-url pattern="/partner**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+    <!--资源文件-->                 
+    <http pattern="/**/*.jpg" security="none"/>              
+	<http pattern="/**/*.png" security="none"/>              
+	<http pattern="/**/*.gif" security="none"/> 
+	<http pattern="/**/*.ico" security="none"/>              
+	<http pattern="/**/*.css" security="none"/> 
+	<http pattern="/**/*.js" security="none"/>         
+    <http pattern="/**/*.html" security="none"/>        
+    <http pattern="/test/**/**" security="none"/>  
+    <http pattern="/login/**/**" security="none"/>                           
+ 	
+<!--  	<http auto-config="true" use-expressions="true"> -->
 
+ <http  >	
+ 	
+		<intercept-url pattern="/admin/**/**" access="hasRole('ROLE_WebAdmin')" />
+		<intercept-url pattern="/partner/**/**" access="hasAnyRole('ROLE_Partner', 'ROLE_WebAdmin')" />
+		<logout logout-success-url="/plogin.jsp?logout" 
+				logout-url="/j_spring_security_logout"
+		
+		/>
+		
 	<form-login 
 		    login-page="/plogin.jsp" 
-		    default-target-url="/partner" 
-			authentication-failure-url="/login?error" 
+		    default-target-url="/partner/index" 
+		    login-processing-url="/j_spring_security_check"
+			authentication-failure-url="/plogin.jsp?error=2" 
 			username-parameter="username"
 			password-parameter="password" />
-		<logout logout-success-url="/login?logout" />
+	
+		<csrf disabled="true"/>
 		
 	</http>
+	
+	
 
-	<authentication-manager>
+  	<authentication-manager>
 	  <authentication-provider>
-	    <user-service>
-		<user name="gaoxy" password="123456" authorities="ROLE_USER" />
-		<user name="admin" password="123456" authorities="ROLE_ADMIN" />
-		
-	    </user-service>
+	    	<jdbc-user-service data-source-ref="dataSource"
+				  users-by-username-query="select username,password,status as enabled
+                                         from t_security_user
+                                        where username=?"
+            	  authorities-by-username-query="select u.username,r.name as role
+            	                             from t_security_user u
+                                             join t_security_user_role ur
+                                               on u.username=ur.username
+                                             join t_security_role r
+                                               on r.id=ur.role_id
+                                            where u.username=?"/>  
+                                        
+             <password-encoder hash="md5" />                                
 	  </authentication-provider>
-	</authentication-manager>
+	</authentication-manager> 
+	
+    <beans:bean id="filterSecurityInterceptor"
+        class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor" autowire="byType">
+        <beans:property name="securityMetadataSource" ref="filterInvocationSecurityMetadataSource" />
+        <beans:property name="authenticationManager" ref="org.springframework.security.authenticationManager"/>
+    </beans:bean>	
+
+<beans:bean id="filterInvocationSecurityMetadataSource"                             
+    class="com.gaoxy.lifeinusa.security.JdbcFilterInvocationDefinitionSourceFactoryBean">
+    <beans:property name="dataSource" ref="dataSource"/>
+    <beans:property name="resourceQuery" value="
+       select re.res_string,r.name as role
+          from t_security_role r
+          join t_security_resc_role rr
+            on r.id=rr.role_id
+          join t_security_resc re
+            on re.id=rr.resc_id
+      order by re.priority      
+       "/>
+</beans:bean> 
+
+
+
+	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<beans:property name="url" value="jdbc:mysql://192.168.1.78:3306/lifeinusaDB"/>
+		<beans:property name="username" value="lifeinusaDBUser"/>
+		<beans:property name="password" value="lifeinusaDBUser"/>
+	</beans:bean>	
+	
+
+<!--   <beans:bean id="filterSecurityInterceptor"
+        class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor" >
+        <beans:property name="accessDecisionManager" ref="accessDecisionManager"/>
+        <beans:property name="securityMetadataSource" ref="filterInvocationSecurityMetadataSource" />
+        <beans:property name="authenticationManager" ref="org.springframework.security.authenticationManager"/>
+  </beans:bean> -->
+  
+  
  
+    
+
+
+<!-- <beans:bean id="accessDecisionManager" class="org.springframework.security.access.vote.UnanimousBased">
+        <beans:constructor-arg>
+            <beans:list>
+                <beans:bean class="org.springframework.security.access.vote.RoleVoter" />
+                <beans:bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
+            </beans:list>
+        </beans:constructor-arg>
+</beans:bean> -->
+
+<!--  <bean id="accessDecisionManager" 
+	class="org.springframework.security.access.vote.AffirmativeBased">
+    <property name="decisionVoters">
+     <list>
+      <bean class="org.springframework.security.access.vote.RoleVoter"/>
+      <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
+     </list>
+    </property>
+   </bean> -->  
  
 </beans:beans>

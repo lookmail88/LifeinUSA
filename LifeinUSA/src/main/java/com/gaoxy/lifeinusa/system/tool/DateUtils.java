@@ -46,4 +46,12 @@ public class DateUtils {
 		  String sdate=myFmt.format(d);
 		  return sdate;
 	}
+	
+	public static String getHexDate(){
+		String re="";
+		Date d=new Date();
+		long l=d.getTime();
+		re=Long.toHexString(l);
+		return re;
+	}
 }

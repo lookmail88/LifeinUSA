@@ -95,32 +95,32 @@
 					<div class="col-md-4">
 						<div class="loginpanel" >
 							<ul >
-								<form class="form-group has-success has-feedback"  >
+								<form class="form-group has-success has-feedback" action="/login/signup" method="post" >
 									<li>Sign Up</li>
 									
 								<li>
-									<input class="form-control"   type="text" placeholder="First Name" required/>			
+									<input     name="firstname"  id="firstname" class="form-control"   type="text" placeholder="First Name" required/>			
 								</li>
 								<li>
-									<input class="form-control"   type="text" placeholder="Last Name" required/>			
+									<input     name="lastname"   id="lastname"  class="form-control"   type="text" placeholder="Last Name" required/>			
 								</li>
 								<li>
-									<input class="form-control"  type="email" placeholder="Email Address" required/>			
+									<input     name="email"      id="email" class="form-control"  type="email" placeholder="Email Address" required/>			
 								</li>
 								<li>
-									<input class="form-control"  type="number" placeholder="Phone Number" required/>			
+									<input     name="phone"      id="phone" class="form-control"  type="number" placeholder="Phone Number" required/>			
 								</li>
 								<li>
-									<input id="inputPassword" class="form-control"   type="password" placeholder="Password" required/>			
+									<input     name="password"   id="password" class="form-control"   type="password" placeholder="Password" required/>			
 								</li>
 								<li>
-									<input class="form-control"   type="password" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm"   required/>			
+									<input     name="repassword" id="repassword" class="form-control"   type="password" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm"   required/>			
 								</li>
 								<li>
 									<div class="form-inline">
-										<input class="form-control"   type="text" placeholder="Verfied Code" required style="width:50%;float:left;"/>	
+										<input name="vcode" class="form-control"   type="text" placeholder="Verfied Code" required style="width:50%;float:left;"/>	
 										
-										<button>12345</button>
+										<button><img src="/image.jsp"></button>
 									</div> 
 								</li>	
 									

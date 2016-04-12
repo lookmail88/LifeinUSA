@@ -8,7 +8,7 @@
       </div>
       <div class="modal-body" style="margin: 0 auto;">
         <ul >
-        <form  action="/partner/index" method="post">     
+        <form  action="j_spring_security_check" method="post">     
 			<li>
 				<input class="form-control" type="text" placeholder="Email"  name="username">
 			</li>	
@@ -20,7 +20,7 @@
 			<li>
 				<div class="checkbox">
   <label>
-    <input type="checkbox" value="">
+    <input type="checkbox" name="">
     Remember Me
   </label>
 </div>

@@ -13,12 +13,16 @@ package com.gaoxy.lifeinusa.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gaoxy.lifeinusa.dao.SecurityUserDao;
 import com.gaoxy.lifeinusa.dao.UserDao;
-import com.gaoxy.lifeinusa.dao.UserDAOHibernateExample;
-import com.gaoxy.lifeinusa.entities.Tusers;
+import com.gaoxy.lifeinusa.entities.TSecurityUser;
+import com.gaoxy.lifeinusa.entities.User;
+
 
 /**
 * <p>Title: UserServiceImpl</p>
@@ -30,9 +34,17 @@ import com.gaoxy.lifeinusa.entities.Tusers;
 
 @Service("userservice")
 public class UserServiceImpl implements UserService{
+	private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
+	
 	
 	@Autowired
 	private UserDao userdao;
+	
+	@Autowired
+	private SecurityUserDao securityuserdao;
+	
+	
 	//private UserDAO userdao;
 
 	/* (non-Javadoc)
@@ -53,10 +65,42 @@ public class UserServiceImpl implements UserService{
 	
 	
 	@Override
-	public List<Tusers> getUserListbyHibernate() {
-		List<Tusers> ls=userdao.findAll();
+	public List<User> getUserListbyHibernate() {
+		List<User> ls=userdao.findAll();
 		 
 		return (List)ls;
+	}
+
+
+
+	/* (non-Javadoc)
+	 * @see com.gaoxy.lifeinusa.services.UserService#addNewUser(com.gaoxy.lifeinusa.entities.User, com.gaoxy.lifeinusa.entities.TSecurityUser)
+	 */
+	@Override
+	public boolean addNewUser(User u) {
+		boolean re=false;
+
+		try {
+			
+			
+			TSecurityUser tu=new TSecurityUser();
+			tu.setUsername(u.getEmail());
+			tu.setPassword(u.getPassword());
+			
+			
+			
+			
+			userdao.save(u);
+			securityuserdao.save(tu);
+
+			re=true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("------>>add new user error!!!");
+			e.printStackTrace();
+		}
+		logger.debug("------>>add new user result:"+re);
+		return re;
 	}
 
 

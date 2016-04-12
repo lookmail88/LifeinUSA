@@ -16,8 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gaoxy.lifeinusa.dao.TWxAppinfoDAO;
+import com.gaoxy.lifeinusa.entities.TWxAppinfo;
 import com.gaoxy.lifeinusa.weixin.Weixin;
 import com.gaoxy.lifeinusa.weixin.msgentity.Item;
 import com.gaoxy.lifeinusa.weixin.msgentity.WXMsg;
@@ -38,6 +41,9 @@ public class WeixinServiceImpl implements WeixinService{
 	private HttpServletRequest Request;
 	private String Appid="";
 	private String Token="lifeinusa";
+	
+	@Autowired
+	TWxAppinfoDAO twxappinfodao;
 	
 
 	/* (non-Javadoc)
@@ -99,6 +105,40 @@ public class WeixinServiceImpl implements WeixinService{
 			
 		return re;
 
+	}
+
+
+	/* (non-Javadoc)
+	 * @see com.gaoxy.lifeinusa.services.WeixinService#addNewApp(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public TWxAppinfo addNewApp(String appid, String appname, String appdesc, String appsecret, String servicetype,String username) {
+		// TODO Auto-generated method stub
+		String id=com.gaoxy.lifeinusa.system.tool.DateUtils.getHexDate();
+		String appurl=com.gaoxy.lifeinusa.system.SystemConfig.DomainUrl+"/rest/weixin/"+id;
+		String token=java.util.UUID.randomUUID().toString();
+		token=token.replaceAll("-","");
+		String aeskey=com.gaoxy.lifeinusa.system.tool.StringUtils.randomStr(43);
+		
+		TWxAppinfo wx=new TWxAppinfo();
+		wx.setId(id);
+		wx.setAppid(appid);
+		wx.setWxname(appname);
+		wx.setWxdesc(appdesc);
+		wx.setAppsecret(appsecret);
+		wx.setServicetype(servicetype);
+		wx.setUsername(username);
+		// /rest/weixin/appid this is weixin app visit url
+		wx.setAppurl(appurl);
+		wx.setApptoken(token);
+		wx.setEcodingaeskey(aeskey);
+		wx.setEncodingtype("2");
+		 
+		logger.debug("------>>wx user name is "+wx.getUsername());
+		
+		 twxappinfodao.Insert(wx);
+		
+		return wx;
 	}
 	
 	

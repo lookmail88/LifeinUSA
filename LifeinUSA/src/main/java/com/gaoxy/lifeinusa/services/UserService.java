@@ -12,7 +12,8 @@ package com.gaoxy.lifeinusa.services;
 
 import java.util.List;
 
-import com.gaoxy.lifeinusa.entities.Tusers;
+import com.gaoxy.lifeinusa.entities.TSecurityUser;
+import com.gaoxy.lifeinusa.entities.User;
 
 /**
 * <p>Title: UserService</p>
@@ -23,6 +24,7 @@ import com.gaoxy.lifeinusa.entities.Tusers;
 */
 public interface UserService {
 	public List<String> getTestUserList();
-	public List<Tusers> getUserListbyHibernate();
+	public List<User> getUserListbyHibernate();
+	public boolean addNewUser(User u);
 	
 }

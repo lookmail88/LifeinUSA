@@ -12,7 +12,7 @@ package com.gaoxy.lifeinusa.dao;
 
 import java.util.List;
 
-import com.gaoxy.lifeinusa.entities.Tusers;
+import com.gaoxy.lifeinusa.entities.User;
 
 /**
 * <p>Title: SHUserDao</p>
@@ -22,5 +22,17 @@ import com.gaoxy.lifeinusa.entities.Tusers;
 * @date Jul 19, 2015
 */
 public interface UserDao {
-	public  List<Tusers> findAll();
+	public  List<User> findAll();
+	
+	public void save(User instance);
+
+	public void attachClean(User instance) ;
+
+	public void delete(User persistentInstance) ;
+
+	public User merge(User detachedInstance);
+
+	public User findById(java.lang.String id);
+
+	public List<User> findByExample(User instance) ;
 }

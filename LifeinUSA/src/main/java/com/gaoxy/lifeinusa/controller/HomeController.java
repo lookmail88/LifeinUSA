@@ -21,46 +21,7 @@ import com.gaoxy.lifeinusa.system.SysLogger;
 @Controller
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	 
 	
-	@Autowired
-	UserService userservice;
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.debug("Welcome home! The client locale is {}.");
-		//System.out.println("--------------------------------------------------------");
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		model.addAttribute("userTestList", userservice.getTestUserList() );
-		model.addAttribute("userDataList", userservice.getUserListbyHibernate() );
-		
-		
-		return "home";
-	}
-
-	/**
-	 * @return the userservice
-	 */
-	public UserService getUserservice() {
-		return userservice;
-	}
-
-	/**
-	 * @param userservice the userservice to set
-	 */
-	public void setUserservice(UserService userservice) {
-		this.userservice = userservice;
-	}
 	
 	
 	
