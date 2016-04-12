@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-1 22:37:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.gaoxy.lifeinusa.entities.TSecurityUser" table="t_security_user">
+        <id name="username" type="string">
+            <column name="username" length="50" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="string">
+            <column name="password" length="50" not-null="true" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status">
+                <comment>1:zhuce</comment>
+            </column>
+        </property>
+        <property name="descn" type="string">
+            <column name="descn" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

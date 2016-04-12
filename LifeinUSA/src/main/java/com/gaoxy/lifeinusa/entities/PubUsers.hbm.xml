@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-1 22:37:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.gaoxy.lifeinusa.entities.PubUsers" table="pub_users">
+        <id name="userId" type="string">
+            <column name="user_id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="userAccount" type="string">
+            <column name="user_account" length="30" not-null="true" />
+        </property>
+        <property name="userName" type="string">
+            <column name="user_name" length="40" not-null="true" />
+        </property>
+        <property name="userPassword" type="string">
+            <column name="user_password" length="100" not-null="true" />
+        </property>
+        <property name="enabled" type="int">
+            <column name="enabled" not-null="true" />
+        </property>
+        <property name="issys" type="int">
+            <column name="issys" not-null="true" />
+        </property>
+        <property name="userDesc" type="string">
+            <column name="user_desc" length="100">
+                <comment>&#195;&#167;&#226;&#128;&#157;&#194;&#168;&#195;&#166;&#203;&#134;&#194;&#183;&#195;&#168;&#194;&#161;&#194;&#168;</comment>
+            </column>
+        </property>
+        <set name="pubUsersRoleses" table="pub_users_roles" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" length="32" not-null="true" />
+            </key>
+            <one-to-many class="com.gaoxy.lifeinusa.entities.PubUsersRoles" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-1 22:37:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.gaoxy.lifeinusa.entities.TSecurityRescRole" table="t_security_resc_role">
+        <id name="id" type="string">
+            <column name="id" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="rescId" type="string">
+            <column name="resc_id" length="50" />
+        </property>
+        <property name="roleId" type="string">
+            <column name="role_id" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

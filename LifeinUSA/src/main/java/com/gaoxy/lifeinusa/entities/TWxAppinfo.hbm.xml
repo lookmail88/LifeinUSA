@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-1 22:37:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.gaoxy.lifeinusa.entities.TWxAppinfo" table="t_wx_appinfo">
+        <id name="id" type="string">
+            <column name="Id" length="25" />
+            <generator class="assigned" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="45" not-null="true" />
+        </property>
+        <property name="servicetype" type="string">
+            <column name="servicetype" length="10" not-null="true" />
+        </property>
+        <property name="wxname" type="string">
+            <column name="wxname" length="45" not-null="true" />
+        </property>
+        <property name="wxdesc" type="string">
+            <column name="wxdesc" length="200" not-null="true" />
+        </property>
+        <property name="appid" type="string">
+            <column name="appid" length="45" not-null="true" />
+        </property>
+        <property name="appsecret" type="string">
+            <column name="appsecret" length="45" not-null="true" />
+        </property>
+        <property name="appurl" type="string">
+            <column name="appurl" length="256" not-null="true" />
+        </property>
+        <property name="apptoken" type="string">
+            <column name="apptoken" length="45" not-null="true" />
+        </property>
+        <property name="ecodingaeskey" type="string">
+            <column name="ecodingaeskey" length="45" not-null="true" />
+        </property>
+        <property name="encodingtype" type="string">
+            <column name="encodingtype" length="10" not-null="true" />
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="createtime" length="0" />
+        </property>
+        <property name="lastupdatetime" type="timestamp">
+            <column name="lastupdatetime" length="0" />
+        </property>
+    </class>
+</hibernate-mapping>

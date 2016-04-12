@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-1 22:37:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.gaoxy.lifeinusa.entities.PubRoles" table="pub_roles">
+        <id name="roleId" type="string">
+            <column name="role_id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="roleName" type="string">
+            <column name="role_name" length="100" not-null="true" />
+        </property>
+        <property name="roleDesc" type="string">
+            <column name="role_desc" length="100" />
+        </property>
+        <property name="enabled" type="int">
+            <column name="enabled" not-null="true" />
+        </property>
+        <property name="issys" type="int">
+            <column name="issys" not-null="true">
+                <comment>&#195;&#168;&#194;&#167;&#226;&#128;&#153;&#195;&#168;&#226;&#128;&#176;&#194;&#178;&#195;&#168;&#194;&#161;&#194;&#168;</comment>
+            </column>
+        </property>
+        <set name="pubUsersRoleses" table="pub_users_roles" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="role_id" length="32" not-null="true">
+                    <comment>
+                    &#195;&#168;&#194;&#167;&#226;&#128;&#153;&#195;&#168;&#226;&#128;&#176;&#194;&#178;&#195;&#165;&#226;&#128;&#153;&#197;&#146;&#195;&#167;&#226;&#128;&#157;&#194;&#168;&#195;&#166;&#203;&#134;&#194;&#183;&#195;&#164;&#194;&#184;&#194;&#173;&#195;&#169;&#226;&#128;&#148;&#194;&#180;&#195;&#168;&#194;&#161;&#194;&#168;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.gaoxy.lifeinusa.entities.PubUsersRoles" />
+        </set>
+        <set name="pubRolesAuthoritieses" table="pub_roles_authorities" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="role_id" length="32" not-null="true" />
+            </key>
+            <one-to-many class="com.gaoxy.lifeinusa.entities.PubRolesAuthorities" />
+        </set>
+    </class>
+</hibernate-mapping>

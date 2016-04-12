@@ -240,10 +240,6 @@
         </plugins>
     </build>
     <modules>
-    	
-    	
-    	<module>service_back_end</module>
-    	<module>service_front_end</module>
     	<module>service_plat_core</module>
     </modules>
 </project>

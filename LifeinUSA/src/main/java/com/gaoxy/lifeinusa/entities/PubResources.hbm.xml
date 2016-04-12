@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-1 22:37:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.gaoxy.lifeinusa.entities.PubResources" table="pub_resources">
+        <id name="resourceId" type="string">
+            <column name="resource_id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="resourceName" type="string">
+            <column name="resource_name" length="100" not-null="true" />
+        </property>
+        <property name="resourceType" type="string">
+            <column name="resource_type" length="40" not-null="true" />
+        </property>
+        <property name="priority" type="int">
+            <column name="priority" not-null="true" />
+        </property>
+        <property name="resourceString" type="string">
+            <column name="resource_string" length="200" not-null="true" />
+        </property>
+        <property name="resourceDesc" type="string">
+            <column name="resource_desc" length="100" />
+        </property>
+        <property name="enabled" type="int">
+            <column name="enabled" not-null="true" />
+        </property>
+        <property name="issys" type="int">
+            <column name="issys" not-null="true" />
+        </property>
+        <set name="pubAuthoritiesResourceses" table="pub_authorities_resources" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="resource_id" length="32" not-null="true" />
+            </key>
+            <one-to-many class="com.gaoxy.lifeinusa.entities.PubAuthoritiesResources" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-1 22:37:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.gaoxy.lifeinusa.entities.PubUsersRoles" table="pub_users_roles">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pubRoles" class="com.gaoxy.lifeinusa.entities.PubRoles" fetch="select">
+            <column name="role_id" length="32" not-null="true">
+                <comment>
+                &#195;&#168;&#194;&#167;&#226;&#128;&#153;&#195;&#168;&#226;&#128;&#176;&#194;&#178;&#195;&#165;&#226;&#128;&#153;&#197;&#146;&#195;&#167;&#226;&#128;&#157;&#194;&#168;&#195;&#166;&#203;&#134;&#194;&#183;&#195;&#164;&#194;&#184;&#194;&#173;&#195;&#169;&#226;&#128;&#148;&#194;&#180;&#195;&#168;&#194;&#161;&#194;&#168;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="pubUsers" class="com.gaoxy.lifeinusa.entities.PubUsers" fetch="select">
+            <column name="user_id" length="32" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
