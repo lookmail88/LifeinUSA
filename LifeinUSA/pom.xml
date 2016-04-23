@@ -241,5 +241,8 @@
     </build>
     <modules>
     	<module>service_plat_core</module>
+    	<module>service_back_end</module>
+    	
+    	<module>service_front_end</module>
     </modules>
 </project>
