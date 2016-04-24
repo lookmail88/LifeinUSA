@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.gaoxy</groupId>
     <artifactId>lifeinusa</artifactId>
-    <version>1.0.0-BUILD-SNAPSHOT</version>
+    <version>1.0.0.1</version>
   </parent>
   <groupId>com.gaoxy.lifeinusa</groupId>
   <artifactId>service_plat_core</artifactId>
@@ -14,14 +14,60 @@
   <name>service_plat_core Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+  
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${spring.plat.version}</version>
+    </dependency>
+   
+   <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-jpa</artifactId>
+        <version>${spring.jpa.version}</version>
+    </dependency>
+  
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>${log4j.version}</version>
+    </dependency>
+    
+    
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+    
+    
+    
+    
   </dependencies>
+  
+  <repositories>
+    <repository>
+        <id>spring-milestones</id>
+        <name>Spring Milestones</name>
+        <url>https://repo.spring.io/libs-milestone</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </repository>
+</repositories>
+  
+  
   <build>
     <finalName>service_plat_core</finalName>
   </build>
+  
+  
+  
+  <properties>
+  	<junit.version>4.11</junit.version>
+  	<log4j.version>1.2.14</log4j.version>
+  	<spring.jpa.version>1.10.1.RELEASE</spring.jpa.version>
+  	<spring.plat.version>4.3.0.RC1</spring.plat.version>
+  </properties>
 </project>
